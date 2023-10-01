@@ -1,25 +1,32 @@
-document.getElementById('form').addEventListener('submit', function (event) {
-    event.preventDefault();
-
+function validarFormulario() {
     var nome = document.getElementById('nome').value;
     var email = document.getElementById('email').value;
+    var curso = document.getElementById('curso').value;
+    var matricula = document.getElementById('matricula').value;
     var descricao = document.getElementById('descricao').value;
     var curriculo = document.getElementById('curriculo').value;
 
-    // Envia dados para o servidor usando AJAX
+    // Validar campos obrigatórios
+    if (nome === '' || email === '' || curso === '' || matricula === '' || descricao === '' || curriculo === '') {
+        document.getElementById('error-message').textContent = 'Por favor, preencha todos os campos.';
+        return;
+    }
+
+    // Aqui você pode usar AJAX para enviar os dados para o servidor e processá-los
+    // Após processar os dados no servidor, você pode exibir uma mensagem de sucesso na div "resposta"
+    // Exemplo de código AJAX:
+    
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'processar.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.onload = function () {
+    xhr.onload = function() {
         if (xhr.status === 200) {
-            var respostaDiv = document.getElementById('resposta');
-            respostaDiv.innerHTML = `<p>${xhr.responseText}</p>`;
-            respostaDiv.style.backgroundColor = '#4caf50';
-            respostaDiv.style.color = 'white';
-            respostaDiv.style.padding = '20px';
-            respostaDiv.style.borderRadius = '10px';
-            respostaDiv.style.marginTop = '20px';
+            document.getElementById('resposta').innerHTML = xhr.responseText;
         }
     };
-    xhr.send(`nome=${nome}&email=${email}&descricao=${descricao}&curriculo=${curriculo}`);
-});
+    xhr.send('nome=' + nome + '&email=' + email + '&curso=' + curso + '&matricula=' + matricula + '&descricao=' + descricao + '&curriculo=' + curriculo);
+    
+
+    // Exemplo de mensagem de sucesso (apenas para ilustração)
+    document.getElementById('resposta').innerHTML = 'Obrigado, ' + nome + '! Seu formulário foi enviado com sucesso.';
+}
