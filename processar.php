@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $curriculo = $_POST["curriculo"];
 
     // Conectar ao banco de dados (substitua pelos seus próprios detalhes de conexão)
-    $conn = new mysqli("https://br958.hostgator.com.br:2083/", "downlo32_bhs", "Bhs@1536", "downlo32_uni");
+    $conn = new mysqli("localhost", "downlo32_bhs", "Bhs@1536", "downlo32_uni");
 
     // Verificar a conexão
     if ($conn->connect_error) {
