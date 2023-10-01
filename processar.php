@@ -17,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mensagem .= "Currículo: $curriculo\n";
 
     // Endereço de e-mail para onde os dados serão enviados
-    $destinatario = 'bruno@brunohdmacedo.engineer';
+    $destinatario = 'brunohdmacedo@gmail.com';
 
     // Enviar e-mail
-    $headers = 'From: bruno@brunohdmacedo.engineer'; // Substitua pelo seu endereço de e-mail
+    $headers = 'From: brunohdmacedo@gmail.com'; // Substitua pelo seu endereço de e-mail
     if(mail($destinatario, $assunto, $mensagem, $headers)) {
         echo "Obrigado, $nome! Seu formulário foi enviado com sucesso.";
     } else {
