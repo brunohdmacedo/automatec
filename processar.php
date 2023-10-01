@@ -5,13 +5,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descricao = $_POST["descricao"];
     $curriculo = $_POST["curriculo"];
 
-    // Formatar os dados como uma linha CSV
-    $linha_csv = "$nome, $email, $descricao, $curriculo\n";
+    // Construir o corpo do e-mail
+    $assunto = 'Novo Cadastro de Membro';
+    $mensagem = "Nome: $nome\n";
+    $mensagem .= "E-mail: $email\n";
+    $mensagem .= "Descrição: $descricao\n";
+    $mensagem .= "Currículo: $curriculo\n";
 
-    // Salvar os dados em um arquivo CSV
-    file_put_contents("dados.csv", $linha_csv, FILE_APPEND);
+    // Endereço de e-mail para onde os dados serão enviados
+    $destinatario = 'bruno@brunohdmacedo.engineer';
 
-    // Resposta para o cliente (pode ser usada para exibir uma mensagem na página)
-    echo "Obrigado, $nome! Recebemos seus dados. Em breve entraremos em contato!";
+    // Enviar e-mail
+    $headers = 'From: webmaster@example.com'; // Substitua pelo seu endereço de e-mail
+    if(mail($destinatario, $assunto, $mensagem, $headers)) {
+        echo "Obrigado, $nome! Seu formulário foi enviado com sucesso.";
+    } else {
+        echo "Erro ao enviar o formulário. Por favor, tente novamente mais tarde.";
+    }
 }
 ?>
