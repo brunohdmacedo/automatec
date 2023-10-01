@@ -16,34 +16,40 @@ body {
     text-align: center;
 }
 
-input[type="text"],
-input[type="email"] {
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.input-group input,
+.input-group textarea {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
-}
-
-input[type="submit"] {
+.input-group .btn {
     background-color: #4caf50;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 12px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-input[type="submit"]:hover {
+.input-group .btn:hover {
     background-color: #45a049;
+}
+
+#error-message {
+    color: red;
+    margin-bottom: 10px;
 }
