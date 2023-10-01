@@ -1,34 +1,50 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pt-BR" prefix="og: http://ogp.me/ns#"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="pt-BR" prefix="og: http://ogp.me/ns#"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="pt-BR" prefix="og: http://ogp.me/ns#"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="pt-BR" prefix="og: http://ogp.me/ns#"> <!--<![endif]-->
-<html lang="pt-br, en" xmlns="https://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"/>
-	
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Membros</title>
+    <title>Automatec - Cadastro de Membros</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
     <div class="container">
-        <h1>Bem-vindo à Automatec!</h1>
-        <p>Preencha o formulário abaixo para saber mais sobre nossos serviços de automação.</p>
+        <h1>Cadastro de Membros - Automatec</h1>
+        <div id="error-message"></div>
         <form id="form">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="descricao">Conte-nos sobre você e por que deseja participar da empresa:</label>
-            <textarea id="descricao" name="descricao" rows="4" required></textarea>
-            <label for="curriculo">Link do Currículo (Lattes, PDF, etc.):</label>
-            <input type="text" id="curriculo" name="curriculo" required>
-            <input type="submit" value="Enviar">
+            <div class="input-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="input-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="curso">Curso:</label>
+                <input type="text" id="curso" name="curso" required>
+            </div>
+            <div class="input-group">
+                <label for="matricula">Matrícula:</label>
+                <input type="text" id="matricula" name="matricula" required>
+            </div>
+            <div class="input-group">
+                <label for="descricao">Conte-nos sobre você e por que deseja participar da empresa:</label>
+                <textarea id="descricao" name="descricao" rows="4" required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="curriculo">Link do Currículo (Lattes, PDF, etc.):</label>
+                <input type="text" id="curriculo" name="curriculo" required>
+            </div>
+            <div class="input-group">
+                <button type="button" class="btn" onclick="validarFormulario()">Enviar</button>
+            </div>
         </form>
         <div id="resposta"></div>
     </div>
+
     <script src="script.js"></script>
 </body>
 
